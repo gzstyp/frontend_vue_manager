@@ -1,0 +1,22 @@
+{
+    "menu" : [
+        {
+            "path" : "/menu",
+            "name": "menu",
+            "component" : "Menu",
+            "leaf" : true
+        },
+        {
+            "path" : "/user",
+            "name": "user",
+            "component" : "User",
+            "leaf" : true
+        },
+        {
+            "path" : "/role",
+            "name": "role",
+            "component" : "Role",
+            "leaf" : true
+        }
+    ]
+}
