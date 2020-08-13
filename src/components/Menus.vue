@@ -20,7 +20,7 @@
                                     <!--父节点-->
                                     <template slot="title">{{subItem.label}}</template>
                                     <template v-for="(sub,indx) in subItem.children">
-                                        <el-menu-item :index="sub.kid">
+                                        <el-menu-item :index="sub.kid" @click="toPage(sub.kid,sub.path,sub.name)">
                                             <span slot="title">{{sub.label}}</span>
                                         </el-menu-item>
                                     </template>
@@ -28,14 +28,14 @@
                             </template>
                             <!--判断是否没有三级页面2结束-->
                             <template v-if="!subItem.children">
-                                <el-menu-item :index="subItem.kid">{{subItem.label}}</el-menu-item>
+                                <el-menu-item :index="subItem.kid" @click="toPage(subItem.kid,subItem.path,subItem.name)">{{subItem.label}}</el-menu-item>
                             </template>
                         </template>
                     </el-submenu>
                 </template>
                 <!--判断是否含有二级页面1结束-->
                 <template v-if="!item.children">
-                    <el-menu-item :index="item.kid">
+                    <el-menu-item :index="item.kid" @click="toPage(item.kid,item.path,item.name)">
                         <i :class="item.icon"></i>
                         <span slot="title">{{item.label}}</span>
                     </el-menu-item>
@@ -48,8 +48,8 @@
     export default {
         name: "Menus",
         methods : {
-            toPage(key,keyPath){
-                console.log(key,keyPath);
+            toPage(kid,path,name){
+                this.$router.push({name:name});
             }
         },
         data(){
